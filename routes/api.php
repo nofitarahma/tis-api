@@ -3,6 +3,10 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PublicPostController;
+
+Route::get('/public-posts', [PublicPostController::class, 'getAllPosts']);
+
 Route::prefix('posts')->group(function () {
     Route::post('/', [PostController::class, 'createPost']);
     Route::get('/{id}', [
